@@ -12,7 +12,7 @@ function zip (src, pack, callback) {
   if (isWin) {
     var _7z = require('win-7zip')['7z']
     // eg. 7z a -tzip archive.zip ./archive
-    run(_7z, ['a', '-tzip', pack, src], callback)
+    run(_7z, ['a', '-t7z', '-m0=lzma', '-mx=9', '-mfb=64', '-md=32m', '-ms=o', pack, src], callback)
   } else {
     // inspired by cross-zip
     // https://github.com/feross/cross-zip/blob/abf9908a259988657c773ea111f83dfcece2ff5f/index.js#L80-L82
